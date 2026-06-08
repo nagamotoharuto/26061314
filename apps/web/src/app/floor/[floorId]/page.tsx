@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ChevronLeft } from 'lucide-react'
 import { roomService } from '@/server/services/room-service'
 import { FloorMapClient } from '@/components/features/floor-map-client'
+import { FlowerInline } from '@/components/features/flower-decoration'
 
 interface PageProps {
   params: { floorId: string }
@@ -25,18 +26,23 @@ export default async function FloorPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* ヘッダー */}
-      <header className="bg-brand-900 text-yellow-300 flex-shrink-0 sticky top-0 z-30 shadow-md">
-        <div className="max-w-4xl mx-auto px-4 h-14 flex items-center gap-3">
+      {/* ヘッダー (桃色) */}
+      <header className="bg-brand-900 text-yellow-300 flex-shrink-0 sticky top-0 z-30 shadow-md overflow-hidden relative">
+        {/* ヘッダー背景の薄い花模様 */}
+        <FlowerInline className="absolute -right-3 -top-3 w-16 h-16 text-pink-300 opacity-10 rotate-12 pointer-events-none" />
+        <FlowerInline className="absolute left-1/2 -top-4 w-12 h-12 text-pink-200 opacity-[0.07] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 h-14 flex items-center gap-3 relative">
           <Link href="/" className="flex items-center gap-1 text-yellow-200/80 hover:text-yellow-300 transition-colors">
             <ChevronLeft className="h-5 w-5" />
             <span className="text-sm">戻る</span>
           </Link>
 
           <div className="flex-1 min-w-0">
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-center gap-2">
+              <FlowerInline className="w-4 h-4 text-pink-300 shrink-0 opacity-70" />
               <span className="text-2xl font-bold">{floor}階</span>
-              <span className="text-white text-sm hidden sm:block truncate">
+              <span className="text-white/70 text-sm hidden sm:block truncate">
                 {FLOOR_DESCRIPTION[floor]}
               </span>
             </div>
@@ -46,7 +52,7 @@ export default async function FloorPage({ params }: PageProps) {
           <div className="hidden sm:flex items-center gap-1">
             {[1, 2, 3, 4].filter((f) => f !== floor).map((f) => (
               <Link key={f} href={`/floor/${f}`}>
-                <button className="text-xs text-yellow-300 hover:text-yellow-100 bg-yellow-400/10 hover:bg-yellow-400/20 border border-yellow-400/30 hover:border-yellow-400/60 rounded px-2 py-1 transition-colors font-medium">
+                <button className="text-xs text-yellow-300 hover:text-yellow-100 bg-pink-800/50 hover:bg-pink-700/60 border border-pink-600/40 hover:border-pink-400/60 rounded px-2 py-1 transition-colors font-medium">
                   {f}F
                 </button>
               </Link>
@@ -55,10 +61,12 @@ export default async function FloorPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* ピン数インジケーター */}
+      {/* ピン数インジケーター (緑色) */}
       {pinnedCount > 0 && (
-        <div className="bg-brand-600 text-yellow-300 text-center text-sm py-2 px-4">
+        <div className="bg-green-700 text-yellow-300 text-center text-sm py-2 px-4 flex items-center justify-center gap-2">
+          <FlowerInline className="w-3.5 h-3.5 text-green-300" />
           ピンをタップするとイベント情報が表示されます ({pinnedCount}件)
+          <FlowerInline className="w-3.5 h-3.5 text-green-300" />
         </div>
       )}
       {pinnedCount === 0 && (
