@@ -28,7 +28,7 @@ export default async function FloorPage({ params }: PageProps) {
       {/* ヘッダー */}
       <header className="bg-brand-900 text-white flex-shrink-0 sticky top-0 z-30 shadow-md">
         <div className="max-w-4xl mx-auto px-4 h-14 flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-1 text-brand-200 hover:text-white transition-colors">
+          <Link href="/" className="flex items-center gap-1 text-white/70 hover:text-white transition-colors">
             <ChevronLeft className="h-5 w-5" />
             <span className="text-sm">戻る</span>
           </Link>
@@ -36,7 +36,7 @@ export default async function FloorPage({ params }: PageProps) {
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-bold">{floor}階</span>
-              <span className="text-brand-200 text-sm hidden sm:block truncate">
+              <span className="text-white/70 text-sm hidden sm:block truncate">
                 {FLOOR_DESCRIPTION[floor]}
               </span>
             </div>
@@ -46,7 +46,7 @@ export default async function FloorPage({ params }: PageProps) {
           <div className="hidden sm:flex items-center gap-1">
             {[1, 2, 3, 4].filter((f) => f !== floor).map((f) => (
               <Link key={f} href={`/floor/${f}`}>
-                <button className="text-xs text-brand-200 hover:text-white border border-brand-700 hover:border-brand-400 rounded px-2 py-1 transition-colors">
+                <button className="text-xs text-white hover:text-white bg-white/15 hover:bg-white/30 border border-white/30 hover:border-white/60 rounded px-2 py-1 transition-colors font-medium">
                   {f}F
                 </button>
               </Link>

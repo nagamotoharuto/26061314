@@ -29,9 +29,9 @@ export default function HomePage() {
         <div className="w-full max-w-lg space-y-3">
           {FLOORS.map((floor) => (
             <Link key={floor.id} href={`/floor/${floor.id}`}>
-              <div className="group bg-white/10 hover:bg-white/20 active:bg-white/25 border border-white/20 rounded-2xl p-5 flex items-center gap-5 transition-all cursor-pointer">
+              <div className="group bg-white/15 hover:bg-white/25 active:bg-white/30 border border-white/25 rounded-2xl p-5 flex items-center gap-5 transition-all cursor-pointer">
                 {/* 階数バッジ */}
-                <div className="w-16 h-16 rounded-xl bg-brand-500 group-hover:bg-brand-400 flex items-center justify-center shrink-0 transition-colors">
+                <div className="w-16 h-16 rounded-xl bg-white/30 group-hover:bg-white/40 flex items-center justify-center shrink-0 transition-colors">
                   <span className="text-white text-2xl font-bold leading-none">
                     {floor.id}
                   </span>

@@ -106,7 +106,7 @@ export function StaffDashboard({ initialRooms }: StaffDashboardProps) {
         {byFloor.map(({ floor, rooms: floorRooms }) => (
           <section key={floor}>
             <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <span className="bg-brand-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center">
+              <span className="bg-brand-500 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center">
                 {floor}
               </span>
               {FLOOR_LABELS[floor]}
