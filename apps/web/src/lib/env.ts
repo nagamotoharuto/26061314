@@ -7,4 +7,18 @@ const envSchema = z.object({
   NODE_ENV:        z.enum(['development', 'production', 'test']).default('development'),
 })
 
-export const env = envSchema.parse(process.env as Record<string, string>)
+function getEnv() {
+  // next build 中 (NEXT_PHASE=phase-production-build) はバリデーションをスキップ
+  // Railway のビルド時に環境変数が未設定でもビルドを通すため
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    return {
+      DATABASE_URL:    process.env.DATABASE_URL    ?? 'postgresql://build-placeholder',
+      SESSION_SECRET:  process.env.SESSION_SECRET  ?? 'build-placeholder-secret-32chars!!',
+      STAFF_PASSWORD:  process.env.STAFF_PASSWORD  ?? 'build-placeholder',
+      NODE_ENV:        (process.env.NODE_ENV ?? 'production') as 'development' | 'production' | 'test',
+    }
+  }
+  return envSchema.parse(process.env as Record<string, string>)
+}
+
+export const env = getEnv()
