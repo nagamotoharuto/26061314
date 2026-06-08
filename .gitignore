@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.env
+.env.local
+*.log
+dist/
+.DS_Store
+
+# SQLite ローカル DB (本番は PostgreSQL を使用)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Prisma generated
+apps/web/node_modules/

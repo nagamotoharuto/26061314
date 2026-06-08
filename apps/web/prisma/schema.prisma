@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ローカル開発: provider = "sqlite", url = "file:./dev.db"
+// Railway 本番: provider = "postgresql", url = env("DATABASE_URL")
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Room {
+  id        String  @id @default(cuid())
+  name      String
+  floor     Int
+  imageName String?
+  pinX      Float   @default(50)
+  pinY      Float   @default(50)
+  event     Event?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([floor])
+}
+
+model Event {
+  id          String    @id @default(cuid())
+  roomId      String    @unique
+  room        Room      @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  startAt     DateTime
+  endAt       DateTime?
+  deletedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
