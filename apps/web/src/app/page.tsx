@@ -25,14 +25,9 @@ export default function HomePage() {
           <FlowerInline className="w-4 h-4 text-pink-300 opacity-80" />
         </div>
 
-        <h1 className="text-yellow-300 text-3xl md:text-4xl font-bold tracking-tight mt-1">
+        <h1 className="text-green-300 text-3xl md:text-4xl font-bold tracking-tight mt-1">
           学園祭マップ
         </h1>
-
-        {/* テーマ装飾 */}
-        <p className="text-green-300 text-sm font-medium mt-1 tracking-[0.3em]">
-          ― 花 ―
-        </p>
 
         <p className="text-white/80 text-sm mt-2">
           フロアを選択してイベント情報を確認
@@ -49,19 +44,19 @@ export default function HomePage() {
                 <div className="w-16 h-16 rounded-xl bg-white/20 group-hover:bg-white/30 flex items-center justify-center shrink-0 transition-colors relative overflow-hidden">
                   {/* バッジ内の薄い花模様 */}
                   <FlowerInline className="absolute inset-0 w-full h-full text-pink-300 opacity-15" />
-                  <span className="relative text-yellow-300 text-2xl font-bold leading-none z-10">
+                  <span className="relative text-green-300 text-2xl font-bold leading-none z-10">
                     {floor.id}
                   </span>
-                  <span className="relative text-yellow-300 text-sm font-medium ml-0.5 z-10">F</span>
+                  <span className="relative text-green-300 text-sm font-medium ml-0.5 z-10">F</span>
                 </div>
 
                 {/* テキスト */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-yellow-300 text-xl font-bold">{floor.label}</p>
+                  <p className="text-green-300 text-xl font-bold">{floor.label}</p>
                   <p className="text-white/80 text-sm mt-0.5 truncate">{floor.description}</p>
                 </div>
 
-                <ChevronRight className="text-yellow-300/50 group-hover:text-yellow-300 h-6 w-6 shrink-0 transition-colors" />
+                <ChevronRight className="text-green-300/50 group-hover:text-green-300 h-6 w-6 shrink-0 transition-colors" />
               </div>
             </Link>
           ))}
