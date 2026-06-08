@@ -12,9 +12,10 @@ model Room {
   name      String
   floor     Int
   imageName String?
-  pinX      Float   @default(50)
-  pinY      Float   @default(50)
-  event     Event?
+  pinX       Float   @default(50)
+  pinY       Float   @default(50)
+  pinVisible Boolean @default(true)
+  event      Event?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -9,7 +9,8 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
-import { Check, Loader2, MapPin, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react'
+import { Check, Loader2, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react'
+import { PersonPin } from '@/components/features/person-pin'
 import type { RoomWithEvent } from '@/server/repositories/room-repository'
 
 interface PinPositionEditorProps {
@@ -148,11 +149,11 @@ export function PinPositionEditor({ room, open, onOpenChange, onSaved }: PinPosi
               style={{
                 left:      `${currentX}%`,
                 top:       `${currentY}%`,
-                transform: 'translate(-50%, -50%)',
+                transform: 'translate(-50%, -100%)',
               }}
             >
-              <span className="relative flex items-center gap-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg whitespace-nowrap">
-                <MapPin className="h-3 w-3 shrink-0" />
+              <PersonPin className="h-9 w-6 text-red-600 drop-shadow-md" />
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-0.5 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow whitespace-nowrap">
                 {room.name}
               </span>
             </div>

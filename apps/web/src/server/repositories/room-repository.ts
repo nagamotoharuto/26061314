@@ -35,4 +35,12 @@ export const roomRepository = {
       include: { event: true },
     })
   },
+
+  updatePinVisible(id: string, pinVisible: boolean) {
+    return db.room.update({
+      where: { id },
+      data: { pinVisible },
+      include: { event: true },
+    })
+  },
 }

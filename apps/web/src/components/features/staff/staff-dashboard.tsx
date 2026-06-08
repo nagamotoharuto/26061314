@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { EventEditor } from './event-editor'
 import { PinPositionEditor } from './pin-position-editor'
-import { CalendarDays, LogOut, MapPin, Pencil, Pin } from 'lucide-react'
+import { CalendarDays, Eye, EyeOff, LogOut, MapPin, Pencil, Pin } from 'lucide-react'
 import { formatDateTime } from '@/lib/utils'
 import type { RoomWithEvent } from '@/server/repositories/room-repository'
 
@@ -47,6 +47,15 @@ export function StaffDashboard({ initialRooms }: StaffDashboardProps) {
   function openPinEditor(room: RoomWithEvent) {
     setPinEditingRoom(room)
     setPinEditorOpen(true)
+  }
+
+  async function handleTogglePinVisible(room: RoomWithEvent) {
+    await fetch(`/api/rooms/${room.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pinVisible: !room.pinVisible }),
+    })
+    await refreshRooms()
   }
 
   const byFloor = [1, 2, 3, 4].map((floor) => ({
@@ -163,6 +172,15 @@ export function StaffDashboard({ initialRooms }: StaffDashboardProps) {
                         title="ピン位置を設定"
                       >
                         <Pin className="h-3 w-3" />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className={`text-xs px-2 ${room.pinVisible ? 'text-green-600 border-green-300' : 'text-gray-400'}`}
+                        onClick={() => handleTogglePinVisible(room)}
+                        title={room.pinVisible ? 'ピンを非表示にする' : 'ピンを表示する'}
+                      >
+                        {room.pinVisible ? <Eye className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}
                       </Button>
                     </div>
                   </CardContent>

@@ -6,6 +6,10 @@ export const PinUpdateSchema = z.object({
   pinY: z.number().min(0).max(100),
 })
 
+export const PinVisibleSchema = z.object({
+  pinVisible: z.boolean(),
+})
+
 export const roomService = {
   getRoomsForFloor(floor: number) {
     return roomRepository.findByFloor(floor)
@@ -20,5 +24,11 @@ export const roomService = {
     const room = await roomRepository.findById(id)
     if (!room) throw new Error('部屋が見つかりません')
     return roomRepository.updatePin(id, data.pinX, data.pinY)
+  },
+
+  async updatePinVisible(id: string, pinVisible: boolean) {
+    const room = await roomRepository.findById(id)
+    if (!room) throw new Error('部屋が見つかりません')
+    return roomRepository.updatePinVisible(id, pinVisible)
   },
 }

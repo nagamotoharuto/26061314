@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { MapPin } from 'lucide-react'
 import { EventModal } from './event-modal'
+import { PersonPin } from './person-pin'
 import type { RoomWithEvent } from '@/server/repositories/room-repository'
 
 interface FloorMapClientProps {
@@ -14,8 +14,8 @@ export function FloorMapClient({ floor, rooms }: FloorMapClientProps) {
   const [selectedRoom, setSelectedRoom] = useState<RoomWithEvent | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
 
-  // イベントが設定されている部屋のみピン表示
-  const pinnedRooms = rooms.filter((r) => r.event !== null)
+  // イベントが設定されていて、かつ表示フラグが ON の部屋のみピン表示
+  const pinnedRooms = rooms.filter((r) => r.event !== null && r.pinVisible)
 
   function handlePinClick(room: RoomWithEvent) {
     setSelectedRoom(room)
@@ -42,17 +42,19 @@ export function FloorMapClient({ floor, rooms }: FloorMapClientProps) {
             style={{
               left: `${room.pinX}%`,
               top:  `${room.pinY}%`,
-              transform: 'translate(-50%, -50%)',
+              transform: 'translate(-50%, -100%)',
             }}
             onClick={() => handlePinClick(room)}
             aria-label={`${room.name} のイベント情報を見る`}
           >
             {/* パルスアニメーション */}
-            <span className="absolute inset-0 rounded-full bg-red-400 opacity-40 animate-ping" />
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-400 opacity-40 animate-ping" />
 
-            {/* ピン本体 */}
-            <span className="relative flex items-center gap-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg whitespace-nowrap group-hover:bg-red-700 transition-colors">
-              <MapPin className="h-3 w-3 shrink-0" />
+            {/* 人型ピン */}
+            <PersonPin className="relative h-9 w-6 text-red-600 group-hover:text-red-700 transition-colors drop-shadow-md" />
+
+            {/* 部屋名ラベル */}
+            <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               {room.name}
             </span>
           </button>
