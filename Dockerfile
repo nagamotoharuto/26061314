@@ -16,4 +16,5 @@ ENV NODE_ENV=production
 ENV PORT=3000
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+# 起動時に DB マイグレーション → アプリ起動
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npx tsx prisma/seed.ts && npm run start"]
