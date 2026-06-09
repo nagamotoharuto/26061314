@@ -50,6 +50,9 @@ export function FloorMapClient({ floor, rooms }: FloorMapClientProps) {
             {/* 人型ピン */}
             <PersonPin className="relative h-9 w-6 text-red-600 group-hover:text-red-700 transition-colors drop-shadow-md" />
 
+            {/* 足元パルス */}
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-400 opacity-40 animate-ping" />
+
             {/* 部屋名ラベル */}
             <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               {room.name}
