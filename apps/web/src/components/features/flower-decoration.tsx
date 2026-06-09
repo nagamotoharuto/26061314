@@ -33,17 +33,17 @@ export function FlowerSvg({ className, ...props }: SVGProps<SVGSVGElement>) {
 export function FlowerBgDecoration() {
   return (
     <div aria-hidden className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-      <FlowerSvg className="absolute -top-8 -right-8 w-52 h-52 text-pink-300 opacity-[0.09] rotate-12" />
-      <FlowerSvg className="absolute top-1/3 -left-12 w-56 h-56 text-pink-200 opacity-[0.07]" />
-      <FlowerSvg className="absolute bottom-24 right-6 w-32 h-32 text-pink-300 opacity-[0.10] rotate-[30deg]" />
-      <FlowerSvg className="absolute -bottom-6 left-10 w-40 h-40 text-pink-200 opacity-[0.06] -rotate-12" />
-      <FlowerSvg className="absolute top-24 left-[30%] w-14 h-14 text-white opacity-[0.08] rotate-[15deg]" />
-      <FlowerSvg className="absolute top-8 left-[60%] w-10 h-10 text-pink-100 opacity-[0.12] -rotate-6" />
+      <FlowerSvg className="absolute -top-8 -right-8 w-52 h-52 text-sky-300 opacity-[0.18] rotate-12" />
+      <FlowerSvg className="absolute top-1/3 -left-12 w-56 h-56 text-teal-200 opacity-[0.12]" />
+      <FlowerSvg className="absolute bottom-24 right-6 w-32 h-32 text-sky-400 opacity-[0.14] rotate-[30deg]" />
+      <FlowerSvg className="absolute -bottom-6 left-10 w-40 h-40 text-teal-300 opacity-[0.10] -rotate-12" />
+      <FlowerSvg className="absolute top-24 left-[30%] w-14 h-14 text-sky-200 opacity-[0.16] rotate-[15deg]" />
+      <FlowerSvg className="absolute top-8 left-[60%] w-10 h-10 text-sky-300 opacity-[0.14] -rotate-6" />
     </div>
   )
 }
 
 /** 見出し横に置く小さな花アイコン */
 export function FlowerInline({ className }: { className?: string }) {
-  return <FlowerSvg className={className ?? 'inline-block w-4 h-4 text-pink-300'} />
+  return <FlowerSvg className={className ?? 'inline-block w-4 h-4 text-sky-400'} />
 }
