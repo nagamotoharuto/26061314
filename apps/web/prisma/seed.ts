@@ -6,6 +6,7 @@ const prisma = new PrismaClient()
 // スタッフ管理画面の「ピン位置を設定」から後から調整可能
 const rooms = [
   // ---- 1階 ----
+  { name: '体育館',                  floor: 1, imageName: null,                        pinX:  4, pinY: 52 },
   { name: 'ものづくりシアター',      floor: 1, imageName: 'making-theater.png',       pinX: 22, pinY: 20 },
   { name: 'アイデア工房 1階',         floor: 1, imageName: 'idea-workshop-1f.png',      pinX: 38, pinY: 33 },
   { name: 'カフェテリア',            floor: 1, imageName: 'cafeteria.png',             pinX: 42, pinY: 52 },
