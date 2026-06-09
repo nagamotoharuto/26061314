@@ -7,6 +7,10 @@ const prisma = new PrismaClient()
 const rooms = [
   // ---- 1階 ----
   { name: '体育館',                  floor: 1, imageName: null,                        pinX:  4, pinY: 52 },
+  { name: 'テラス',                  floor: 1, imageName: null,                        pinX: 60, pinY: 70 },
+  { name: '受付',                    floor: 1, imageName: null,                        pinX: 50, pinY: 15 },
+  { name: 'エントランス',            floor: 1, imageName: null,                        pinX: 50, pinY:  5 },
+  { name: '学生ホール',              floor: 1, imageName: null,                        pinX: 65, pinY: 45 },
   { name: 'ものづくりシアター',      floor: 1, imageName: 'making-theater.png',       pinX: 22, pinY: 20 },
   { name: 'アイデア工房 1階',         floor: 1, imageName: 'idea-workshop-1f.png',      pinX: 38, pinY: 33 },
   { name: 'カフェテリア',            floor: 1, imageName: 'cafeteria.png',             pinX: 42, pinY: 52 },
