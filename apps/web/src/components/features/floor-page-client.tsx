@@ -62,6 +62,13 @@ export function FloorPageClient({ floor, rooms }: FloorPageClientProps) {
               </div>
             </Link>
           ))}
+          <div className="mt-auto pb-1">
+            <Link href="/staff/login">
+              <div className="w-10 h-10 rounded-lg flex flex-col items-center justify-center cursor-pointer bg-white/10 hover:bg-white/20 transition-all select-none">
+                <span className="text-[9px] text-white/50 hover:text-white/80 font-medium leading-tight text-center">スタッフ</span>
+              </div>
+            </Link>
+          </div>
         </nav>
 
         {/* フロアマップ (中央) */}
