@@ -75,8 +75,8 @@ export function FloorPageClient({ floor, rooms }: FloorPageClientProps) {
         </div>
 
         {/* 右サイドパネル: イベント一覧テーブル */}
-        <aside className="w-56 bg-white border-l border-sky-200 flex flex-col shrink-0 overflow-hidden">
-          <div className="bg-brand-900 text-white text-center text-xs font-bold py-2 px-2 shrink-0 tracking-wide">
+        <aside className="w-80 bg-white border-l border-sky-200 flex flex-col shrink-0 overflow-hidden">
+          <div className="bg-brand-900 text-white text-center text-sm font-bold py-2 px-3 shrink-0 tracking-wide">
             {floor}階 イベント一覧
           </div>
           <div className="flex-1 overflow-y-auto">

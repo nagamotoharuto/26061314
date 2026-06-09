@@ -11,12 +11,11 @@ interface FloorMapClientProps {
   onPinClick: (room: RoomWithEvent) => void
 }
 
-// 現在地: 1階事務局近くの階段 (位置調整はここで)
-const CURRENT_LOCATION = { x: 35, y: 70 }
+// 現在地: 受付ピン付近 (位置調整はここで)
+const CURRENT_LOCATION = { x: 68, y: 87 }
 
 export function FloorMapClient({ floor, rooms, selectedRoomId, onPinClick }: FloorMapClientProps) {
   const pinnedRooms = rooms.filter((r) => r.event !== null && r.pinVisible)
-  const selectedRoom = pinnedRooms.find((r) => r.id === selectedRoomId) ?? null
 
   return (
     <div className="relative w-full select-none">
@@ -28,32 +27,6 @@ export function FloorMapClient({ floor, rooms, selectedRoomId, onPinClick }: Flo
         className="w-full h-auto block"
         draggable={false}
       />
-
-      {/* ルート線 SVG (1階のみ、ピン選択時) */}
-      {floor === 1 && selectedRoom && (
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none z-10"
-          style={{ overflow: 'visible' }}
-        >
-          <defs>
-            <marker id="route-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#0369a1" opacity="0.9" />
-            </marker>
-          </defs>
-          <line
-            x1={`${CURRENT_LOCATION.x}%`}
-            y1={`${CURRENT_LOCATION.y}%`}
-            x2={`${selectedRoom.pinX}%`}
-            y2={`${selectedRoom.pinY - 7}%`}
-            stroke="#0369a1"
-            strokeWidth="3"
-            strokeDasharray="9,6"
-            strokeLinecap="round"
-            markerEnd="url(#route-arrow)"
-            opacity="0.85"
-          />
-        </svg>
-      )}
 
       {/* 現在地マーカー (1階のみ) */}
       {floor === 1 && (
