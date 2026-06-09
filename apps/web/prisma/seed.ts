@@ -32,6 +32,7 @@ const rooms = [
   { name: 'S309',                    floor: 3, imageName: 's309.png',                  pinX:  8, pinY: 50 },
   { name: 'S310',                    floor: 3, imageName: 's310.png',                  pinX:  8, pinY: 47 },
   { name: 'S311',                    floor: 3, imageName: 's311.png',                  pinX:  8, pinY: 43 },
+  { name: 'S312・S313',              floor: 3, imageName: null,                        pinX:  8, pinY: 34 },
   { name: 'S317',                    floor: 3, imageName: 's317.png',                  pinX:  8, pinY: 15 },
   { name: 'S319',                    floor: 3, imageName: 's319.png',                  pinX:  8, pinY:  5 },
   { name: 'エレベーター前 3階',       floor: 3, imageName: 'elevator-front-3f.png',     pinX: 52, pinY: 27 },
