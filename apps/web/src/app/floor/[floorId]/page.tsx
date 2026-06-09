@@ -63,7 +63,7 @@ export default async function FloorPage({ params }: PageProps) {
 
       {/* ピン数インジケーター (緑色) */}
       {pinnedCount > 0 && (
-        <div className="bg-green-700 text-yellow-300 text-center text-sm py-2 px-4 flex items-center justify-center gap-2">
+        <div className="bg-green-500 text-yellow-300 text-center text-sm py-2 px-4 flex items-center justify-center gap-2">
           <FlowerInline className="w-3.5 h-3.5 text-green-400" />
           ピンをタップするとイベント情報が表示されます ({pinnedCount}件)
           <FlowerInline className="w-3.5 h-3.5 text-green-400" />
