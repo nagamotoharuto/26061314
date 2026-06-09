@@ -47,9 +47,6 @@ export function FloorMapClient({ floor, rooms }: FloorMapClientProps) {
             onClick={() => handlePinClick(room)}
             aria-label={`${room.name} のイベント情報を見る`}
           >
-            {/* パルスアニメーション */}
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-red-400 opacity-40 animate-ping" />
-
             {/* 人型ピン */}
             <PersonPin className="relative h-9 w-6 text-red-600 group-hover:text-red-700 transition-colors drop-shadow-md" />
 
