@@ -8,6 +8,7 @@ const rooms = [
   // ---- 1階 ----
   { name: '体育館',                  floor: 1, imageName: null,                        pinX:  4, pinY: 52 },
   { name: 'テラス',                  floor: 1, imageName: null,                        pinX: 60, pinY: 70 },
+  { name: '中庭',                    floor: 1, imageName: null,                        pinX: 55, pinY: 80 },
   { name: '受付',                    floor: 1, imageName: null,                        pinX: 50, pinY: 15 },
   { name: 'エントランス',            floor: 1, imageName: null,                        pinX: 50, pinY:  5 },
   { name: '学生ホール',              floor: 1, imageName: null,                        pinX: 65, pinY: 45 },

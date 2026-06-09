@@ -19,7 +19,6 @@ export function FloorMapClient({ floor, rooms, selectedRoomId, onPinClick }: Flo
 
   return (
     <div className="relative w-full select-none">
-      {/* フロアマップ画像 */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/images/floors/floor-${floor}.png`}
@@ -38,14 +37,14 @@ export function FloorMapClient({ floor, rooms, selectedRoomId, onPinClick }: Flo
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="flex flex-col items-center gap-0.5">
-            <span className="bg-brand-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md whitespace-nowrap leading-tight">
+          <div className="flex flex-col items-center gap-1">
+            <span className="bg-brand-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md whitespace-nowrap leading-tight">
               現在地
             </span>
             <div className="relative flex items-center justify-center">
-              <span className="absolute w-8 h-8 rounded-full bg-brand-400 opacity-25 animate-ping" />
-              <div className="relative w-5 h-5 bg-brand-700 border-2 border-white rounded-full flex items-center justify-center shadow-lg z-10">
-                <Navigation className="h-2.5 w-2.5 text-white fill-white" />
+              <span className="absolute w-12 h-12 rounded-full bg-brand-400 opacity-25 animate-ping" />
+              <div className="relative w-8 h-8 bg-brand-700 border-2 border-white rounded-full flex items-center justify-center shadow-lg z-10">
+                <Navigation className="h-4 w-4 text-white fill-white" />
               </div>
             </div>
           </div>
